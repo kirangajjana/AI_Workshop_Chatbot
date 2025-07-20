@@ -1,9 +1,37 @@
-.App {
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    background-color: #2e1a22;
+  }
+  50% {
+    background-color: #3a1e2d;
+  }
+}
+
+body {
+  background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+  margin: 0;
+  padding: 0;
+  animation: fadeIn 1s ease-in;
   font-family: Arial, sans-serif;
+}
+
+.App {
   padding: 2rem;
   max-width: 700px;
   margin: auto;
   text-align: center;
+  animation: fadeIn 1s ease-in;
 }
 
 .chatbox textarea {
@@ -12,17 +40,75 @@
   margin-bottom: 1rem;
   padding: 1rem;
   font-size: 1rem;
+  border: 2px solid #333;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.chatbox textarea:hover,
+.chatbox textarea:focus {
+  box-shadow: 0 0 10px rgba(106, 17, 203, 0.3);
+  transform: scale(1.02);
+  outline: none;
 }
 
 .chatbox button {
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1.2rem;
   font-size: 1rem;
   margin-bottom: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+.chatbox button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
+}
+
+.chatbox button:active {
+  transform: scale(0.98);
+}
 .response {
-  background: #f9f9f9;
+  background: #ffffff;
   padding: 1rem;
   border-radius: 8px;
   text-align: left;
+  border: 2px solid #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 1rem;
+  animation: fadeIn 0.6s ease-in;
+  transition: transform 0.3s ease;
+
+  /* 🛠️ Fix for content overflow */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;  /* Preserves line breaks */
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+
+.response:hover {
+  transform: scale(1.01);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #2e1a22;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  animation: pulse 3s infinite;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.3);
 }
