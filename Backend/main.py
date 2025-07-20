@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Initialize OpenAI client with API key
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+client = OpenAI(os.getenv("openai"))
 
 app = Flask(__name__)
 CORS(app)
