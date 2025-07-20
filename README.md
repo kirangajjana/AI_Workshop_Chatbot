@@ -63,4 +63,4 @@ The **AI Notes Summarizer** is a powerful full-stack application designed to str
 
 ```bash
 git clone <your-repo-url>
-cd ai-buddy
+
